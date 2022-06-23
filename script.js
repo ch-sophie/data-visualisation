@@ -70,7 +70,7 @@ var borderColor2 = [
 // tableData[0].style.backgroundColor = 'green';
 
 // array table1 in console
-const selectTable1 = document.querySelector('#table1')
+const selectTable1 = document.querySelector('#table1');
 const arr1 = [...selectTable1.rows].map(r => [...r.querySelectorAll('td')].map(td => td.textContent));
 console.log(arr1);
 
@@ -145,30 +145,27 @@ console.log(arr1);
 
 
 // basic chart 
-// const ctx = document.getElementById('myChart').getContext('2d');
-// const myChart = new Chart(ctx, {
-//     type: 'line',
-//     data: {
-//         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//         datasets: [{
-//             label: '# of Votes',
-//             data: [12, 19, 3, 5, 2, 3],
-//             backgroundColor: barColor1,
-//             borderColor: borderColor1,
-//             borderWidth: 1,
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             y: {
-//                 beginAtZero: true
-//             }
-//         }
-//     }
-// });
-
-
-// create Chart js
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: barColor1,
+            borderColor: borderColor1,
+            borderWidth: 1,
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
 
 
 
@@ -185,7 +182,9 @@ console.log(arr1);
 // for(let row of tbl.rows) {
 //   console.log(row.cells[1].innerHTML);
 // }
-// let firstRow = []
+// let firstRow = [];
+// let valuesFirstRow = [];
+
 
 
 // const table2 = document.querySelector("#table2");
@@ -197,6 +196,33 @@ console.log(arr1);
 // for(let row of tablerow3.rows) {
 //   console.log(row.cells[3].innerHTML);
 // }
+
+
+let table2 = document.getElementById('table2');
+let countryTable2 = [];
+let date1Table2 = [];
+let date2Table2 = [];
+
+for(let i = 1; i < table2.rows.length; i++){
+  let row = table2.rows[i];
+  let colCountry = row.cells[1].innerText;
+  // console.log(colCountry);
+  countryTable2.push(colCountry);
+}
+for(let i = 1; i < table2.rows.length; i++){
+  let row = table2.rows[i];
+  let date1 = row.cells[2].innerText;
+  // console.log(date1);
+  date1Table2.push(date1);
+}
+for(let i = 1; i < table2.rows.length; i++){
+  let row = table2.rows[i];
+  let date2 = row.cells[3].innerText;
+  // console.log(date2);
+  date2Table2.push(date2);
+}
+
+
 
 // test
 // const tbl = document.getElementById("table2");
@@ -211,11 +237,10 @@ console.log(arr1);
 // }
 
 // array ok 
-const selectTable2 = document.querySelector('#table2')
-const arr = [...selectTable2.rows].map(r => [...r.querySelectorAll('td')].map(td => td.textContent));
-console.log(arr);
+// const selectTable2 = document.querySelector('#table2')
+// const arr = [...selectTable2.rows].map(r => [...r.querySelectorAll('td')].map(td => td.textContent));
+// console.log(arr);
 
-let contentTable2 = []
 
 
 
@@ -268,61 +293,52 @@ let contentTable2 = []
 
 
 // test chart 2 
-// var getChart2 = document.getElementById("myChart2");
+var getChart2 = document.getElementById("myChart2");
 
-// var firstValues = [
-//   310, 243, 514, 333, 326, 687, 71, 638
-// ]
-
-// var secondValues
-
-// var countriesValues
-
-// var firstData = {
-//   label: '2007',
-//   data: firstValues,
-//   backgroundColor: 'rgba(0, 99, 132, 0.6)',
-//   borderColor: 'rgba(0, 99, 132, 1)',
-//   yAxisID: "y-axis-density"
-// };
+var firstData = {
+  label: '2007',
+  data: date1Table2,
+  backgroundColor: 'rgba(0, 99, 132, 0.6)',
+  borderColor: 'rgba(0, 99, 132, 1)',
+  yAxisID: "y-axis-density"
+};
  
-// var secondData = {
-//   label: '2010',
-//   data: [312, 89, 98, 37, 231, 90, 87, 110],
-//   backgroundColor: 'rgba(99, 132, 0, 0.6)',
-//   borderColor: 'rgba(99, 132, 0, 1)',
-//   yAxisID: "y-axis-gravity"
-// };
+var secondData = {
+  label: '2010',
+  data: date2Table2,
+  backgroundColor: 'rgba(99, 132, 0, 0.6)',
+  borderColor: 'rgba(99, 132, 0, 1)',
+  yAxisID: "y-axis-gravity"
+};
  
-// var planetData = {
-//   labels: ["Latvia", "Lithuania", "Estonia", "Czech Republic", "Poland", "Slovakia", "Hungary", "England and Wales(UK)"],
-//   datasets: [firstData, secondData]
-// };
+var countriesData = {
+  labels: countryTable2,
+  datasets: [firstData, secondData]
+};
  
-// var chartOptions = {
-//   scales: {
-//     xAxes: [{
-//       barPercentage: 1,
-//       categoryPercentage: 0.6
-//     }],
-//     yAxes: [{
-//       id: "y-axis-density"
-//     }, {
-//       id: "y-axis-gravity"
-//     }]
-//   }
-// };
+var chartOptions = {
+  scales: {
+    xAxes: [{
+      barPercentage: 1,
+      categoryPercentage: 0.6
+    }],
+    yAxes: [{
+      id: "y-axis-density"
+    }, {
+      id: "y-axis-gravity"
+    }]
+  }
+};
  
-// var barChart = new Chart(getChart2, {
-//   type: 'bar',
-//   data: planetData,
-//   options: chartOptions
-// });
+var barChart = new Chart(getChart2, {
+  type: 'bar',
+  data: countriesData,
+  options: chartOptions
+});
 // ***** 
 
 
 // Chart data ajax ***************************************************
-// <script type="text/javascript">
     window.onload = function() {
       var dataPoints = [];
       var chart;
@@ -356,7 +372,7 @@ let contentTable2 = []
       }
     }
 
-//   <!-- end data ajax -->
+//  end data ajax
 
 
             
