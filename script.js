@@ -1,16 +1,24 @@
 // Create element canvas *****
-// var createTable1 = document.createElement("canvas");
-// var textNode = document.createTextNode("canvas");
-// createTable1.appendChild(textNode);
-// var newTable = document.getElementById("table1");
-// newTable.insertBefore(createTable1, newTable.children[0]);
-
 // var createDiv = document.createElement("div");
 // var createCanvas = document.createElement("canvas");
 // createCanvas.setAttribute("id", "myChart");
 // var getTable = document.getElementById("table1");
 // createDiv.appendChild(createCanvas);
 // getTable.insertBefore(createDiv, getTable.children[0]);
+var getDiv = document.getElementById("Crimes_et_d.C3.A9lits_enregistr.C3.A9s_par_les_services_de_police");
+var createDiv = document.createElement("div");
+var createCanvas = document.createElement("canvas");
+createCanvas.setAttribute("id", "myChart");
+createDiv.appendChild(createCanvas);
+getDiv.appendChild(createDiv);
+
+// create element canvas in table 2
+var getTable2 = document.querySelector('#Homicides');
+var createDiv2 = document.createElement('div');
+var createCanvas2 = document.createElement('canvas');
+createCanvas2.setAttribute('id', 'myChart2');
+createDiv2.appendChild(createCanvas2);
+getTable2.appendChild(createDiv2);
 // *****
 
 // Colors bars ***** 
@@ -50,7 +58,7 @@ var borderColor3 = [
 ]
 // *****
 
-
+// test get data 
 // var getTable = document.getElementById("table1");
 // Get data table 1
 // var rowLength = getTable.rows.length;
@@ -62,7 +70,6 @@ var borderColor3 = [
 //     console.log(cellValue[1]);
 //   }
 // }
-
 
 // var yearData = document.querySelectorAll("#table1 tr");
 // for(let i = 0; i < yearData.length; i++){
@@ -77,7 +84,7 @@ var borderColor3 = [
 // }
 // tableData[0].style.backgroundColor = 'green';
 
-// array table1 in console
+// array table 1 in console
 // const selectTable1 = document.querySelector('#table1');
 // const arr1 = [...selectTable1.rows].map(r => [...r.querySelectorAll('td')].map(td => td.textContent));
 // console.log(arr1);
@@ -97,9 +104,7 @@ let date9Table1 = [];
 let date10Table1 = [];
 let date11Table1 = [];
 // let dates = [];
-
-let dates = [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012]
-
+let dates = [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012];
 
 for(let i = 2; i < table1.rows.length; i++){
   let row1 = table1.rows[i];
@@ -174,125 +179,186 @@ for(let i = 2; i < table1.rows.length; i++){
   date11Table1.push(date11in1);
 }
 
-// *** Create chart 1
-// var getChart1 = document.getElementById("myChart");
-
-
-// Chart 1
-// var getChart1 = document.getElementById("myChart");
-
+// Create chart js 1
 // var getChart1 = document.getElementById("myChart");
 
 // var dataFirst = {
-//     label: "2002",
-//     data: date2Table2,
-//     lineTension: 0,
-//     fill: false,
-//     backgroundColor: barColor2,
-//     borderColor: borderColor2,
-//   };
-
+//   label: '2002',
+//   data: date1Table1,
+//   backgroundColor: barColor1,
+//   borderColor: borderColor1,
+//   borderWidth: 1,
+//   yAxisID: "y-axis-density"
+// };
 // var dataSecond = {
-//     label: "2003",
-//     data: date1Table2,
-//     lineTension: 0,
-//     fill: false,
-//     backgroundColor: barColor3,
-//     borderColor: borderColor3
-//   };
-
-// var countriesDataTable1 = {
+//   label: '2003',
+//   data: date2Table1,
+//   backgroundColor: barColor2,
+//   borderColor: borderColor2,
+//   borderWidth: 1,
+//   yAxisID: "y-axis-gravity"
+// };
+// var dataThird = {
+//   label: '2004',
+//   data: date3Table1,
+//   backgroundColor: barColor1,
+//   borderColor: borderColor1,
+//   borderWidth: 1,
+//   yAxisID: "y-axis-gravity"
+// };
+// var dataFourth = {
+//   label: '2005',
+//   data: date4Table1,
+//   backgroundColor: barColor2,
+//   borderColor: borderColor2,
+//   borderWidth: 1,
+//   yAxisID: "y-axis-gravity"
+// };
+// var dataFifth = {
+//   label: '2006',
+//   data: date5Table1,
+//   backgroundColor: barColor1,
+//   borderColor: borderColor1,
+//   borderWidth: 1,
+//   yAxisID: "y-axis-gravity"
+// };
+// var dataSixth = {
+//   label: '2007',
+//   data: date6Table1,
+//   backgroundColor: barColor2,
+//   borderColor: borderColor2,
+//   borderWidth: 1,
+//   yAxisID: "y-axis-gravity"
+// };
+// var dataSeventh = {
+//   label: '2008',
+//   data: date7Table1,
+//   backgroundColor: barColor1,
+//   borderColor: borderColor1,
+//   borderWidth: 1,
+//   yAxisID: "y-axis-gravity"
+// };
+// var dataEighth = {
+//   label: '2009',
+//   data: date8Table1,
+//   backgroundColor: barColor2,
+//   borderColor: borderColor2,
+//   borderWidth: 1,
+//   yAxisID: "y-axis-gravity"
+// };
+// var dataNinth = {
+//   label: '2010',
+//   data: date9Table1,
+//   backgroundColor: barColor1,
+//   borderColor: borderColor1,
+//   borderWidth: 1,
+//   yAxisID: "y-axis-gravity"
+// };
+// var dataTenth = {
+//   label: '2011',
+//   data: date10Table1,
+//   backgroundColor: barColor2,
+//   borderColor: borderColor2,
+//   borderWidth: 1,
+//   yAxisID: "y-axis-gravity"
+// };
+// var dataEleventh = {
+//   label: '2012',
+//   data: date11Table1,
+//   backgroundColor: barColor1,
+//   borderColor: borderColor1,
+//   borderWidth: 1,
+//   yAxisID: "y-axis-gravity"
+// };
+ 
+// var dataCountry1 = {
 //   labels: countryTable1,
-//   datasets: [dataFirst, dataSecond]
-//   };
-
+//   datasets: [dataFirst, dataSecond, dataThird, dataFourth, dataFifth, dataSixth, dataSeventh, dataEighth, dataNinth, dataTenth, dataEleventh]
+// };
+ 
 // var chartOptions1 = {
-//   legend: {
-//     display: true,
-//     position: 'top',
-//     labels: {
-//       boxWidth: 80,
-//       fontColor: 'black'
-//       }
-//     }
-//   };
-
-// var lineChart = new Chart(getChart1, {
+//   scales: {
+//     xAxes: [{
+//       barPercentage: 1,
+//       categoryPercentage: 0.6
+//     }],
+//     yAxes: [{
+//       id: "y-axis-density"
+//     }, {
+//       id: "y-axis-gravity"
+//     }]
+//   }
+// };
+// var barChart1 = new Chart(getChart1, {
 //   type: 'line',
-//   data: countriesDataTable1,
+//   data: dataCountry1,
 //   options: chartOptions1
 // });
 // ***** 
 
-var getChart1 = document.getElementById("myChart");
 
-var dataFirst = {
-  label: '2002',
-  data: date2Table1,
-  backgroundColor: barColor1,
-  borderColor: borderColor1,
-  borderWidth: 1,
-  yAxisID: "y-axis-density"
-};
- 
-var dataSecond = {
-  label: '2003',
-  data: date3Table1,
-  backgroundColor: barColor2,
-  borderColor: borderColor2,
-  borderWidth: 1,
-  yAxisID: "y-axis-gravity"
-};
- 
-var dataCountry = {
-  labels: countryTable1,
-  datasets: [dataFirst, dataSecond]
-};
- 
-var chartOptions = {
-  scales: {
-    xAxes: [{
-      barPercentage: 1,
-      categoryPercentage: 0.6
-    }],
-    yAxes: [{
-      id: "y-axis-density"
+// test
+var getChart1 = document.getElementById("myChart");
+var xValues = countryTable1;
+
+new Chart(getChart1, {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{ 
+      data: dates,
+      backgroundColor: barColor1,
+      borderColor: borderColor1,
+      fill: false,
+      label: "2002",
+    }, 
+    { 
+      data: date2Table1,
+      backgroundColor: barColor2,
+      borderColor: borderColor2,
+      fill: false,
+      label: "2003",
+    }, { 
+      data: date3Table1,
+      backgroundColor: barColor3,
+      borderColor: borderColor3,
+      fill: false,
+      label: "2004",
     }, {
-      id: "y-axis-gravity"
-    }]
+      data: date4Table1,
+      backgroundColor: barColor1,
+      borderColor: borderColor1,
+      fill: false,
+      label: "2005",
+    }
+  ]
+  },
+  options: {
+    legend: {display: true}
   }
-};
- 
-var barChart = new Chart(getChart1, {
-  type: 'bar',
-  data: dataCountry,
-  options: chartOptions
 });
 
-// ***** 
 
 
 // Graph table 2 ****************************************************
-// var getTable2 = document.getElementById("table2");
 
 // const tbl = document.querySelector("#table2");
 // for(let row of tbl.rows) {
 //   console.log(row.cells[1].innerHTML);
 // }
-// let firstRow = [];
-// let valuesFirstRow = [];
-
-
 // const table2 = document.querySelector("#table2");
 // for(let row of table2.rows) {
 //   console.log(row.cells[2].innerHTML);
 // }
-
 // const tablerow3 = document.querySelector("#table2");
 // for(let row of tablerow3.rows) {
 //   console.log(row.cells[3].innerHTML);
 // }
 
+// array in console 
+// const selectTable2 = document.querySelector('#table2')
+// const arr = [...selectTable2.rows].map(r => [...r.querySelectorAll('td')].map(td => td.textContent));
+// console.log(arr);
 
 let table2 = document.getElementById('table2');
 let countryTable2 = [];
@@ -317,99 +383,28 @@ for(let i = 1; i < table2.rows.length; i++){
   // console.log(date2);
   date2Table2.push(date2);
 }
-
-
-// test
-// const tbl = document.getElementById("table2");
-// for(let i in tbl.rows){
-//   let row = tbl.rows[i]; {
-//     for(let j in row.cells){
-//       let col = row.cells[j];
-//       console.log(row.cells[1].innerHTML);
-
-//     }
-//   }
-// }
-
-// array ok 
-// const selectTable2 = document.querySelector('#table2')
-// const arr = [...selectTable2.rows].map(r => [...r.querySelectorAll('td')].map(td => td.textContent));
-// console.log(arr);
-
-
-// var table2 = document.querySelectorAll("#table2");
-// var countryData = document.querySelectorAll("#table2 tbody tr td:nth-of-type(1)")
-// console.log(countryData);
-// // countryData.map(country => country.innerText);
-// [...countryData].map(country => country.innerText);
-
-
-// basic chart
-{/* <canvas id="myChart" width="400" height="400"></canvas> */}
-
-// const ctx = document.getElementById('myChart2');
-// const myChart = new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//         datasets: [{
-//             label: '# of Votes',
-//             data: [12, 19, 3, 5, 2, 3],
-//             backgroundColor: [
-//                 'rgba(255, 99, 132, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(255, 206, 86, 0.2)',
-//                 'rgba(75, 192, 192, 0.2)',
-//                 'rgba(153, 102, 255, 0.2)',
-//                 'rgba(255, 159, 64, 0.2)'
-//             ],
-//             borderColor: [
-//                 'rgba(255, 99, 132, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(255, 206, 86, 1)',
-//                 'rgba(75, 192, 192, 1)',
-//                 'rgba(153, 102, 255, 1)',
-//                 'rgba(255, 159, 64, 1)'
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             y: {
-//                 beginAtZero: true
-//             }
-//         }
-//     }
-// });
-
-
 // Chart 2 
 var getChart2 = document.getElementById("myChart2");
-
 var firstData = {
   label: '2007-09',
   data: date1Table2,
   backgroundColor: barColor1,
   borderColor: borderColor1,
   borderWidth: 1,
-  yAxisID: "y-axis-density"
+  // yAxisID: "y-axis-first"
 };
- 
 var secondData = {
   label: '2010-12',
   data: date2Table2,
   backgroundColor: barColor2,
   borderColor: borderColor2,
   borderWidth: 1,
-  yAxisID: "y-axis-gravity"
+  // yAxisID: "y-axis-second"
 };
- 
 var countriesData = {
   labels: countryTable2,
   datasets: [firstData, secondData]
 };
- 
 var chartOptions = {
   scales: {
     xAxes: [{
@@ -417,13 +412,12 @@ var chartOptions = {
       categoryPercentage: 0.6
     }],
     yAxes: [{
-      id: "y-axis-density"
+      id: "y-axis-first"
     }, {
-      id: "y-axis-gravity"
+      id: "y-axis-second"
     }]
   }
 };
- 
 var barChart = new Chart(getChart2, {
   type: 'bar',
   data: countriesData,
