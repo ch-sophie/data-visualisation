@@ -29,8 +29,12 @@ Retrieve the data via Ajax, and use it to insert a graph that refreshes every se
 Don't hesitate to adapt the code provided in this tutorial: Live Updating Charts from JSON API & AJAX, but adapt it to this third-party library: chart.js or ToastUi-Chart, because this tutorial uses another (not-free) library (canvasJS).
 
 #### Constraints:
-You can't edit the html file.
-You have the choice of the type of graphics. Considers the most relevant based on the data and what story they can "tell".
-The choice of the javascript library is limited to the 2 libraries offered (there are many others, but these are references and are very popular).
+You can't edit the html file.     
+
+You have the choice of the type of graphics. Considers the most relevant based on the data and what story they can "tell".     
+
+The choice of the javascript library is limited to the 2 libraries offered (there are many others, but these are references and are very popular).     
+
+#### Thank you for reading. :european_post_office: 
 
 ![Data visualisation gif](./image/js-2.gif "Data visualisation gif")
