@@ -5,7 +5,7 @@
 DOM manipulation     
 AJAX/FETCH request     
 Using Third-party libraries     
-Problem-solving : design a logical solution to implement the expected result
+Problem-solving : design a logical solution to implement the expected result     
 Debugging using the console     
 Understand the notion of "separation of concerns"     
 
@@ -32,6 +32,7 @@ Don't hesitate to adapt the code provided in this tutorial: Live Updating Charts
 You can't edit the html file.     
 You have the choice of the type of graphics. Considers the most relevant based on the data and what story they can "tell".     
 The choice of the javascript library is limited to the 2 libraries offered (there are many others, but these are references and are very popular).     
+
 
 #### Thank you for reading. :european_post_office: 
 
