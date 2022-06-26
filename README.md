@@ -1,13 +1,13 @@
 # Javascript Challenge: "Data visualisation"
-Javascript solo 5-day project
+ - Javascript solo 5-day project
 
 #### Objectives: 
-DOM manipulation
-AJAX/FETCH request
-Using Third-party libraries
-problem-solving : design a logical solution to implement the expected result
-Debugging using the console
-Understand the notion of "separation of concerns"
+DOM manipulation     
+AJAX/FETCH request     
+Using Third-party libraries     
+Problem-solving : design a logical solution to implement the expected result
+Debugging using the console     
+Understand the notion of "separation of concerns"     
 
 #### The mission:
 You work in the Multimedia department of one of the European Union institutions. This morning, Johnny Hasnoclew, your Project Manager, sends you on a mission: one of the in-house journalists has published a new article on the institution's website. The article in question is already integrated with an html / css / Javascript file.
@@ -30,9 +30,7 @@ Don't hesitate to adapt the code provided in this tutorial: Live Updating Charts
 
 #### Constraints:
 You can't edit the html file.     
-
 You have the choice of the type of graphics. Considers the most relevant based on the data and what story they can "tell".     
-
 The choice of the javascript library is limited to the 2 libraries offered (there are many others, but these are references and are very popular).     
 
 #### Thank you for reading. :european_post_office: 
