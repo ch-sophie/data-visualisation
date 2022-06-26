@@ -33,5 +33,4 @@ You can't edit the html file.
 You have the choice of the type of graphics. Considers the most relevant based on the data and what story they can "tell".
 The choice of the javascript library is limited to the 2 libraries offered (there are many others, but these are references and are very popular).
 
-![Data visualisation gif](js-2.gif "Data visualisation gif")
-
+![Data visualisation gif](./image/js-2.gif "Data visualisation gif")
