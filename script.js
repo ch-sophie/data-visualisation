@@ -6,8 +6,7 @@ createCanvas.setAttribute("id", "myChart");
 createDiv.appendChild(createCanvas);
 getDiv.appendChild(createDiv);
 createCanvas.style.width = '1000px';
-createCanvas.style.height = '1000px';
-
+createCanvas.style.height = '2200px';
 // create element canvas in table 2
 var getTable2 = document.querySelector('#Homicides');
 var createDiv2 = document.createElement('div');
@@ -15,26 +14,14 @@ var createCanvas2 = document.createElement('canvas');
 createCanvas2.setAttribute('id', 'myChart2');
 createDiv2.appendChild(createCanvas2);
 getTable2.appendChild(createDiv2);
-// *****
-
-
+// create element chart live
+var geth1 = document.getElementById("firstHeading");
+var createDiv3 = document.createElement("div");
+var createCanvas3  = document.createElement("canvas");
+createCanvas3.setAttribute("id", "chartContainer");
+createDiv3.appendChild(createCanvas3);
+geth1.appendChild(createDiv3);
 // Colors bars ***** 
-// var barColors = [
-//   'rgba(255, 99, 132, 0.2)',
-//   'rgba(54, 162, 235, 0.2)',
-//   'rgba(255, 206, 86, 0.2)',
-//   'rgba(75, 192, 192, 0.2)',
-//   'rgba(153, 102, 255, 0.2)',
-//   'rgba(255, 159, 64, 0.2)',
-// ];
-// var borderColor = [
-//   'rgba(255, 99, 132, 1)',
-//   'rgba(54, 162, 235, 1)',
-//   'rgba(255, 206, 86, 1)',
-//   'rgba(75, 192, 192, 1)',
-//   'rgba(153, 102, 255, 1)',
-//   'rgba(255, 159, 64, 1)'
-// ];
 var barColor1 = [
   'rgba(255, 99, 132, 0.2)',
 ]
@@ -53,7 +40,6 @@ var barColor5 = [
 var barColor6 = [
   'rgba(153, 102, 255, 0.2)',
 ]
-
 var borderColor1 = [
   'rgba(255, 99, 132, 1)',
 ]
@@ -73,7 +59,6 @@ var borderColor6 = [
   'rgba(153, 102, 255, 1)',
 ]
 // *****
-
 // data table 1
 let table1 = document.querySelector('#table1');
 let countryTable1 = [];
@@ -93,7 +78,6 @@ let dates = [2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012];
 function replaceNumDot(decimal) {
     return parseFloat((decimal + "").replace(",", "."));
 }
-
 for(let i = 2; i < table1.rows.length; i++){
   let row1 = table1.rows[i];
   let countries1 = row1.cells[1].innerText;
@@ -166,12 +150,11 @@ for(let i = 2; i < table1.rows.length; i++){
 //   console.log(replaceNumDot(date11in1));
   date11Table1.push(replaceNumDot(date11in1));
 }
-
+// get chart 1
 var getChart1 = document.getElementById("myChart");
 var xValues = countryTable1;
-
 new Chart(getChart1, {
-  type: "line",
+  type: "bar",
   data: {
     labels: xValues,
     datasets: [{ 
@@ -253,11 +236,16 @@ new Chart(getChart1, {
   ]
   },
   options: {
+    indexAxis: 'y',
+    elements: {
+      bar: {
+        borderWidth: 2,
+      }
+    },
     legend: {display: true}
   }
 });
 // ***** 
-
 // Graph table 2 ****************************************************
 let table2 = document.getElementById('table2');
 let countryTable2 = [];
@@ -282,7 +270,7 @@ for(let i = 1; i < table2.rows.length; i++){
   // console.log(date2);
   date2Table2.push(date2);
 }
-// Chart 2 
+// get chart 2 
 var getChart2 = document.getElementById("myChart2");
 var firstData = {
   label: '2007-09',
@@ -320,44 +308,70 @@ var chartOptions = {
 var barChart = new Chart(getChart2, {
   type: 'bar',
   data: countriesData,
-  options: chartOptions
+  options: chartOptions,
 });
 // ***** 
 
 // Chart data ajax ***************************************************
-    // window.onload = function() {
-    //   var dataPoints = [];
-    //   var chart;
-    //   $.getJSON("https://canvasjs.com/services/data/datapoints.php", function(data) {  
-    //     $.each(data, function(key, value){
-    //       dataPoints.push({x: value[0], y: parseInt(value[1])});
-    //     });
-    //     chart = new CanvasJS.Chart("chartContainer",{
-    //       title:{
-    //         text:"Live Chart with dataPoints from External JSON"
-    //       },
-    //       data: [{
-    //         type: "line",
-    //         dataPoints : dataPoints,
-    //       }]
-    //     });
-    //     chart.render();
-    //     updateChart();
-    //   });
-    //   function updateChart() {
-    //   $.getJSON("https://canvasjs.com/services/data/datapoints.php?xstart=" + (dataPoints.length + 1) + "&ystart=" + (dataPoints[dataPoints.length - 1].y) + "&length=1&type=json", function(data) {
-    //     $.each(data, function(key, value) {
-    //       dataPoints.push({
-    //       x: parseInt(value[0]),
-    //       y: parseInt(value[1])
-    //       });
-    //     });
-    //     chart.render();
-    //     setTimeout(function(){updateChart()}, 1000);
-    //   });
-    //   }
-    // }
+// get chart 3
+let chart3 = document.getElementById("chartContainer").getContext("2d");
+let counter = 0;
+let xdataarray = [];
 
-//  end data ajax
-            
+function updateChart() {
+  let api_url = `https://canvasjs.com/services/data/datapoints.php?cache=${
+    Math.random() * 20000000
+  }`;
+  async function fetchData() {
+    const response = await fetch(api_url);
+    const datapoints = await response.json();
+    return datapoints;
+  }
+  fetchData().then((datapoints) => {
+    const xdata = datapoints.map(function (index) {
+      return counter * datapoints.length + index[0]; 
+    });
+    counter++;
+    //console.log(xdata);
+      let coordinate = [];
+      for (let i in datapoints) {
+          let v1 = [xdata[i], datapoints[i][1]];
+          coordinate.push(v1)    
+      }
+      //console.log(datapoints);
+    addData(myChart3, xdata, coordinate);
+  });
+  setTimeout(updateChart, 1200);
+}
+updateChart();
+function addData(myChart3, xdata, coordinate) {
+  for (let i in xdata) {
+    myChart3.config.data.labels.push(xdata[i]);
+  }
+  for (let j in coordinate) {
+    myChart3.config.data.datasets.forEach((dataset) => {
+      dataset.data.push(coordinate[j]);
+    });
+  }
+  myChart3.update();
+}
+const data = {
+  labels: [],
+  datasets: [
+    { 
+      label: "Remote data update",
+      data: [],
+      backgroundColor: barColor4,
+      borderColor: borderColor4,
+      borderWidth: 2,
+      pointRadius: 0,
+    },
+  ],
+};
+const config = {
+  type: "line",
+  data: data,
+};
+const myChart3 = new Chart(chart3, config);
+//  end data ajax 
               
